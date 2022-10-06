@@ -5,12 +5,13 @@ import { NativeScriptRouterModule } from '@nativescript/angular';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
-   { path: '', redirectTo: '/home', pathMatch: 'full' },
-   { path: 'home', component: HomeComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'in-app-review', loadChildren: () => import('./plugin-demos/in-app-review.module').then((m) => m.InAppReviewModule) },
 ];
 
 @NgModule({
-	imports: [NativeScriptRouterModule.forRoot(routes)],
-	exports: [NativeScriptRouterModule],
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule],
 })
 export class AppRoutingModule {}

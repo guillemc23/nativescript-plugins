@@ -1,5 +1,5 @@
 {
-  "npmScope": "nativescript",
+  "npmScope": "mastergui",
   "affected": {
     "defaultBase": "master"
   },

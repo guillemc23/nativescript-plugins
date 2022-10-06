@@ -20,7 +20,9 @@
       }
     ],
     "paths": {
-      "@demo/shared": ["tools/demo/index.ts"]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@mastergui/*": ["packages/*"],
+      "@mastergui/in-app-review": ["packages/in-app-review/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
