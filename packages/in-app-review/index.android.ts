@@ -1,3 +1,9 @@
 import { InAppReviewCommon } from './common';
 
-export class InAppReview extends InAppReviewCommon {}
+declare const reviewManager: com.google.android.play.core.review.testing.FakeReviewManager;
+
+export class InAppReview extends InAppReviewCommon {
+  static init() {
+    console.log('>> Init Android');
+  }
+}
