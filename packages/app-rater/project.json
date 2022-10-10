@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/app-rater",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/app-rater",
+        "tsConfig": "packages/app-rater/tsconfig.json",
+        "packageJson": "packages/app-rater/package.json",
+        "main": "packages/app-rater/index.d.ts",
+        "assets": [
+          "packages/app-rater/*.md",
+          "packages/app-rater/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/app-rater/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts app-rater"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/app-rater"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages app-rater"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/app-rater/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

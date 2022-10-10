@@ -1,10 +1,4 @@
-# @mastergui/\* plugins
-
-```
-npm run setup
-npm start
-```
-
+- [@mastergui/app-rater](packages/app-rater/README.md)
 - [@mastergui/in-app-review](packages/in-app-review/README.md)
 
 # How to use?
