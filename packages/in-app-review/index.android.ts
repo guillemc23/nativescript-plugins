@@ -1,12 +1,13 @@
 import { InAppReviewBase, InAppReviewCommon, InAppReviewConfigs, defaultConfigs } from './common';
 import * as application from '@nativescript/core/application';
-import { Utils } from '@nativescript/core';
+import { Application, Utils } from '@nativescript/core';
 
 declare const com: any;
 // declare const reviewManagerTest: com.google.android.play.core.review.testing.FakeReviewManager;
 // declare const reviewManager: com.google.android.play.core.review.ReviewManager;
 
 let _inAppReviewer: com.mastergui.reviews.InAppReviewManager;
+let _inAppReviewerKT: org.mastergui.reviews.InAppReview;
 
 function getInAppReviewer(): Promise<com.mastergui.reviews.InAppReviewManager> {
   return new Promise<com.mastergui.reviews.InAppReviewManager>((resolve, reject) => {
@@ -72,6 +73,9 @@ export const inAppReviewer: InAppReviewBase = {
   setShowNeverButton: function (value: boolean): InAppReviewBase {
     throw new Error('Function not implemented.');
   },
+  getKotlinReviewInfo: function (): void {
+    throw new Error('Function not implemented.');
+  },
 };
 
 function getReviewInfo(_context: any) {
@@ -112,6 +116,12 @@ export class InAppReview extends InAppReviewCommon {
   static startReviewFlow() {
     let _context: android.content.Context = Utils.android.getApplicationContext();
     // let flow = this.reviewManager.launchReviewFlow()
+  }
+
+  static getKotlinReviewInfo() {
+    const review = org.mastergui.reviews.InAppReview;
+    console.log(Application.android.foregroundActivity);
+    review.showReviewDialog(Application.android.foregroundActivity);
   }
 
   createNativeView() {

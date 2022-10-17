@@ -40,9 +40,15 @@ declare module org {
         public getReviewManager(): com.google.android.play.core.review.ReviewManager;
         public getReviewInfo(): com.google.android.play.core.review.ReviewInfo;
         public setReviewInfo(param0: com.google.android.play.core.review.ReviewInfo): void;
-        public showReviewDialog(param0: globalAndroid.app.Activity): void;
         public setReviewManager(param0: com.google.android.play.core.review.ReviewManager): void;
         public constructor();
+        public static showReviewDialog(param0: globalAndroid.app.Activity): void;
+      }
+      export module InAppReview {
+        export class Companion {
+          public static class: java.lang.Class<org.mastergui.reviews.InAppReview.Companion>;
+          public showReviewDialog(param0: globalAndroid.app.Activity): void;
+        }
       }
     }
   }

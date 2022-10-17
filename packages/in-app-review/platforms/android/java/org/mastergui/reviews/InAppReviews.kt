@@ -55,7 +55,8 @@ class InAppReview {
 //            Toast.makeText(applicationContext, "Rating failed", Toast.LENGTH_LONG).show()
 //        }
 //    }
-
+companion object {
+    @JvmStatic
    fun showReviewDialog(applicationContext: Activity) {
     val reviewManager = ReviewManagerFactory.create(applicationContext)
     val requestReviewFlow = reviewManager.requestReviewFlow()
@@ -75,4 +76,6 @@ class InAppReview {
         }
     }
 }
+}
+
 }

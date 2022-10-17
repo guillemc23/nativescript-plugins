@@ -18,6 +18,6 @@ export class DemoSharedInAppReview extends DemoSharedBase {
   }
 
   launch() {
-    console.log('In app review launched!');
+    InAppReview.getKotlinReviewInfo();
   }
 }

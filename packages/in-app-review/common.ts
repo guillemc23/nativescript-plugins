@@ -24,6 +24,7 @@ export interface InAppReviewBase {
   ios?: any;
   android?: any;
   init(configs?: InAppReviewConfigCommon): void;
+  getKotlinReviewInfo(): void;
   incrementSignificantUsageCount(): void;
   showRateDialogIfMeetsConditions(): boolean;
   showRateDialog(): void;
