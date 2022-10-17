@@ -1,16 +1,23 @@
 import { DemoSharedBase } from '../utils';
-import { InAppReview, InAppReviewConfig } from '@mastergui/in-app-review';
+import { InAppReview, InAppReviewConfig, inAppReviewer } from '@mastergui/in-app-review';
 
 export class DemoSharedInAppReview extends DemoSharedBase {
-  testIt(defaultConfigs: InAppReviewConfig) {
-    InAppReview.init({
-      daysUntilPrompt: 7,
-      usesUntilPrompt: 3,
-      daysBeforeReminding: 5,
-      significantUsesUntilPrompt: 0,
-      showLaterButton: true,
-      showNeverButton: true,
-      debugMode: false,
-    });
+  init(defaultConfigs: InAppReviewConfig) {
+    InAppReview.init();
+    // inAppReviewer.init();
+
+    // InAppReview.init({
+    //   daysUntilPrompt: 7,
+    //   usesUntilPrompt: 3,
+    //   daysBeforeReminding: 5,
+    //   significantUsesUntilPrompt: 0,
+    //   showLaterButton: true,
+    //   showNeverButton: true,
+    //   debugMode: false,
+    // });
+  }
+
+  launch() {
+    console.log('In app review launched!');
   }
 }

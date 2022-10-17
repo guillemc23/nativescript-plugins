@@ -6,8 +6,8 @@
     <StackLayout class="p-20">
         <ScrollView class="h-full">
           <StackLayout>
-            <Button text="Test in-app-review" tap="{{ testIt }}" class="btn btn-primary"/>
-
+            <Button text="Init in-app-review" tap="{{ init }}" class="btn btn-primary"/>
+            <Button text="Launch in-app-review" tap="{{ launch }}" class="btn btn-primary"/>
           </StackLayout>
         </ScrollView>
     </StackLayout>

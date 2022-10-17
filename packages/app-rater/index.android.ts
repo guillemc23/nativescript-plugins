@@ -14,7 +14,7 @@ function getAppRater(): Promise<hotchemi.android.rate.AppRate> {
         _appRater = hotchemi.android.rate.AppRate.with(application.android.context);
         return resolve(_appRater);
       };
-
+      console.log('>> Gettings App rater');
       application.on(application.launchEvent, onLaunch);
     }
   });
