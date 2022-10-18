@@ -1,4 +1,4 @@
-/// <reference path="android-declarations.d.ts"/>
+/// <reference path="in-app-review-declarations.d.ts"/>
 
 declare module com {
   export module mastergui {
@@ -37,17 +37,21 @@ declare module org {
     export module reviews {
       export class InAppReview {
         public static class: java.lang.Class<org.mastergui.reviews.InAppReview>;
-        public getReviewManager(): com.google.android.play.core.review.ReviewManager;
-        public getReviewInfo(): com.google.android.play.core.review.ReviewInfo;
-        public setReviewInfo(param0: com.google.android.play.core.review.ReviewInfo): void;
-        public setReviewManager(param0: com.google.android.play.core.review.ReviewManager): void;
+        public static startReviewFlow(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
+        public static showReviewDialog(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
+        public static getReviewInfo(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
         public constructor();
-        public static showReviewDialog(param0: globalAndroid.app.Activity): void;
       }
       export module InAppReview {
         export class Companion {
           public static class: java.lang.Class<org.mastergui.reviews.InAppReview.Companion>;
-          public showReviewDialog(param0: globalAndroid.app.Activity): void;
+          public getReviewInfo(): com.google.android.play.core.review.ReviewInfo;
+          public startReviewFlow(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
+          public showReviewDialog(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
+          public getReviewManager(): com.google.android.play.core.review.ReviewManager;
+          public setReviewManager(param0: com.google.android.play.core.review.ReviewManager): void;
+          public setReviewInfo(param0: com.google.android.play.core.review.ReviewInfo): void;
+          public getReviewInfo(param0: globalAndroid.content.Context, param1: globalAndroid.app.Activity): void;
         }
       }
     }

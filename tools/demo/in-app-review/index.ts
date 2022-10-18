@@ -3,7 +3,8 @@ import { InAppReview, InAppReviewConfig, inAppReviewer } from '@mastergui/in-app
 
 export class DemoSharedInAppReview extends DemoSharedBase {
   init(defaultConfigs: InAppReviewConfig) {
-    InAppReview.init();
+    console.log('Getting review info...');
+    InAppReview.getReviewInfo();
     // inAppReviewer.init();
 
     // InAppReview.init({
@@ -18,6 +19,11 @@ export class DemoSharedInAppReview extends DemoSharedBase {
   }
 
   launch() {
+    console.log('Starting review flow...');
+    InAppReview.startReviewFlow();
+  }
+
+  testKotlin() {
     InAppReview.getKotlinReviewInfo();
   }
 }

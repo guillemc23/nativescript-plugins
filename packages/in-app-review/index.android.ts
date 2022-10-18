@@ -74,7 +74,13 @@ export const inAppReviewer: InAppReviewBase = {
     throw new Error('Function not implemented.');
   },
   getKotlinReviewInfo: function (): void {
-    throw new Error('Function not implemented.');
+    console.log('Yes');
+  },
+  getReviewInfo: function (): void {
+    console.log('Yis');
+  },
+  startReviewFlow: function (): void {
+    console.log('Yos');
   },
 };
 
@@ -107,21 +113,30 @@ export class InAppReview extends InAppReviewCommon {
   }
 
   static getReviewInfo() {
-    let _context: android.content.Context = Utils.android.getApplicationContext();
-    this.reviewManager = com.google.android.play.core.review.ReviewManagerFactory.create(_context);
-    this.request = this.reviewManager.requestReviewFlow();
-    console.log(this.request);
+    const review = org.mastergui.reviews.InAppReview;
+    const androidContext = Utils.android.getApplicationContext();
+    const androidActivity = Application.android.foregroundActivity;
+    console.log(androidContext);
+    console.log(androidActivity);
+    review.getReviewInfo(androidContext, androidActivity);
   }
 
   static startReviewFlow() {
-    let _context: android.content.Context = Utils.android.getApplicationContext();
-    // let flow = this.reviewManager.launchReviewFlow()
+    const review = org.mastergui.reviews.InAppReview;
+    const androidContext = Utils.android.getApplicationContext();
+    const androidActivity = Application.android.foregroundActivity;
+    console.log(androidContext);
+    console.log(androidActivity);
+    review.startReviewFlow(androidContext, androidActivity);
   }
 
   static getKotlinReviewInfo() {
     const review = org.mastergui.reviews.InAppReview;
-    console.log(Application.android.foregroundActivity);
-    review.showReviewDialog(Application.android.foregroundActivity);
+    const androidContext = Utils.android.getApplicationContext();
+    const androidActivity = Application.android.foregroundActivity;
+    console.log(androidContext);
+    console.log(androidActivity);
+    review.showReviewDialog(androidContext, androidActivity);
   }
 
   createNativeView() {
