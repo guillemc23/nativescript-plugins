@@ -1,5 +1,7 @@
 # @mastergui/in-app-review
 
+![npm](https://img.shields.io/npm/dw/@mastergui/in-app-review)
+
 ```bash
 ns plugin add @mastergui/in-app-review
 ```
