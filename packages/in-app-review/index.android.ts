@@ -113,6 +113,7 @@ export class InAppReview extends InAppReviewCommon {
   }
 
   static getReviewInfo() {
+    console.dir(org.mastergui.reviews);
     const review = org.mastergui.reviews.InAppReview;
     const androidContext = Utils.android.getApplicationContext();
     const androidActivity = Application.android.foregroundActivity;
@@ -122,6 +123,7 @@ export class InAppReview extends InAppReviewCommon {
   }
 
   static startReviewFlow() {
+    // console.dir(org.mastergui.reviews.InAppReview);
     const review = org.mastergui.reviews.InAppReview;
     const androidContext = Utils.android.getApplicationContext();
     const androidActivity = Application.android.foregroundActivity;
