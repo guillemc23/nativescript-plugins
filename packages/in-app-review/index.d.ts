@@ -1,7 +1,8 @@
-import { InAppReviewCommon, InAppReviewBase, InAppReviewConfigs } from './common';
+import { InAppReviewCommon } from './common';
 
 export * from './common';
 
-export declare class InAppReview extends InAppReviewCommon {}
-export declare interface InAppReviewConfig extends InAppReviewConfigCommon {}
-export declare const inAppReviewer: InAppReviewBase;
+export declare class InAppReview extends InAppReviewCommon {
+  static init(): void;
+  static showReviewDialog(): void;
+}

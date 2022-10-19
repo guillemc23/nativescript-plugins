@@ -1,60 +1,22 @@
 import { Observable } from '@nativescript/core';
 
 export class InAppReviewCommon extends Observable {
-  static init(eventNumber: InAppReviewConfigCommon) {
-    console.log(eventNumber.daysBeforeReminding);
+  /**
+   * Initializes a ReviewManager instance, retrieving all the info necessary from Google Play Review API.
+   *
+   * Call this method at app start or before intending to show the dialog to pre-cache the reviewInfo object to use to show
+   * in-app review dialog later.
+   */
+  static init(): void {
+    console.log('>> Initializing In App Review flow...');
   }
 
-  static count(eventNumber: InAppReviewConfigCommon) {
-    console.log(eventNumber.daysUntilPrompt);
+  /**
+   * Tries to show the Review dialog. It's Google who decides to show it or not depending on its quota of how often the review dialog can be shown or if the user has already rated the app. @link https://developer.android.com/guide/playcore/in-app-review#quotas
+   *
+   * @remarks Must be called AFTER init()
+   */
+  static showReviewDialog(): void {
+    console.log('>> Showing review dialog...');
   }
 }
-
-export interface InAppReviewConfigCommon {
-  daysUntilPrompt?: number;
-  usesUntilPrompt?: number;
-  daysBeforeReminding?: number;
-  significantUsesUntilPrompt?: number;
-  showLaterButton?: boolean;
-  showNeverButton?: boolean;
-  debugMode?: boolean;
-}
-
-export interface InAppReviewBase {
-  ios?: any;
-  android?: any;
-  init(configs?: InAppReviewConfigCommon): void;
-  getKotlinReviewInfo(): void;
-  getReviewInfo(): void;
-  startReviewFlow(): void;
-  incrementSignificantUsageCount(): void;
-  showRateDialogIfMeetsConditions(): boolean;
-  showRateDialog(): void;
-  setDaysUntilPrompt(days: number): InAppReviewBase;
-  setUsesUntilPrompt(uses: number): InAppReviewBase;
-  setSignificantUsesUntilPrompt(uses: number): InAppReviewBase;
-  setDaysBeforeReminding(days: number): InAppReviewBase;
-  setDebugMode(debug: boolean): InAppReviewBase;
-  setShowLaterButton(value: boolean): InAppReviewBase;
-  setShowNeverButton(value: boolean): InAppReviewBase;
-}
-
-export interface InAppReviewConfigs {
-  daysUntilPrompt?: number;
-  usesUntilPrompt?: number;
-  daysBeforeReminding?: number;
-  significantUsesUntilPrompt?: number;
-  showLaterButton?: boolean;
-  showNeverButton?: boolean;
-  debugMode?: boolean;
-}
-
-export const defaultConfigs: InAppReviewConfigs = {
-  daysUntilPrompt: 7,
-  usesUntilPrompt: 3,
-  daysBeforeReminding: 5,
-  significantUsesUntilPrompt: 0,
-  showLaterButton: true,
-  showNeverButton: true,
-  debugMode: false,
-};
