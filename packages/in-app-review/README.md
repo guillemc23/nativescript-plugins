@@ -1,5 +1,7 @@
 # @mastergui/in-app-review
 
+![npm](https://img.shields.io/npm/dw/@mastergui/in-app-review)
+
 ```bash
 ns plugin add @mastergui/in-app-review
 ```
@@ -22,7 +24,7 @@ import { InAppReview } from "@mastergui/in-app-review"
 InAppReview.init()
 ```
 
-To show the dialog, run the following method, and, depending on the ReviewInfo object previously obtained, the dialog will pop up or not.
+To show the dialog, run the following method, and, depending on the ReviewInfo object previously obtained, the dialog will pop up or not. Google's guidelines indicate that this dialog should be shown after the user completes a certain action, but not as a result of a call to action button to avoid a broken experience in case the dialog doesn't pop up. It is also recommended to show the dialog after transitioning from one page to another.
 
 ```javascript
 import { InAppReview } from "@mastergui/in-app-review"
@@ -33,7 +35,7 @@ InAppReview.showReviewDialog()
 It's important to note that the dialog will **only** show if the app is on the Google Play Store. For development purposes, I added some toasts to understand if everything is going correctly.
 
 
-For more information on the In-App-Review API, check the official [documentation](https://developer.android.com/guide/playcore/in-app-review)
+For more information on the In-App-Review API, check the official [documentation](https://developer.android.com/guide/playcore/in-app-review).
 
 
 ### iOS
