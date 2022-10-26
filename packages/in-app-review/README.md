@@ -1,4 +1,4 @@
-# @mastergui/in-app-review
+# In App Reviews for NativeScript (@mastergui/in-app-review)
 
 ![npm](https://img.shields.io/npm/dw/@mastergui/in-app-review)
 
