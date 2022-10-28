@@ -12,5 +12,8 @@ export class HomeComponent {
     {
       name: 'in-app-review',
     },
+    {
+      name: 'in-app-update',
+    },
   ];
 }

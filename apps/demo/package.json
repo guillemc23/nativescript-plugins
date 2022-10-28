@@ -6,7 +6,8 @@
   "dependencies": {
     "@nativescript/core": "file:../../node_modules/@nativescript/core",
     "@mastergui/in-app-review": "file:../../packages/in-app-review",
-    "@mastergui/app-rater": "file:../../packages/app-rater"
+    "@mastergui/app-rater": "file:../../packages/app-rater",
+    "@mastergui/in-app-update": "file:../../packages/in-app-update"
   },
   "devDependencies": {
     "@nativescript/android": "~8.3.0",

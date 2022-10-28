@@ -1,5 +1,6 @@
 - [@mastergui/app-rater](packages/app-rater/README.md)
 - [@mastergui/in-app-review](packages/in-app-review/README.md)
+- [@mastergui/in-app-update](packages/in-app-update/README.md)
 
 # How to use?
 

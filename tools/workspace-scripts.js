@@ -75,6 +75,13 @@ module.exports = {
           description: '@mastergui/app-rater: Build',
         },
       },
+      // @mastergui/in-app-update
+      'in-app-update': {
+        build: {
+          script: 'nx run in-app-update:build.all',
+          description: '@mastergui/in-app-update: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -92,6 +99,10 @@ module.exports = {
       'app-rater': {
         script: 'nx run app-rater:focus',
         description: 'Focus on @mastergui/app-rater',
+      },
+      'in-app-update': {
+        script: 'nx run in-app-update:focus',
+        description: 'Focus on @mastergui/in-app-update',
       },
       reset: {
         script: 'nx g @mastergui/plugin-tools:focus-packages',

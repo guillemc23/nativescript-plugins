@@ -1,0 +1,35 @@
+{
+  "name": "@mastergui/in-app-update",
+  "version": "1.0.0",
+  "description": "Add a plugin description",
+  "main": "index",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillemc23/nativescript-plugins.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "TypeScript",
+    "iOS",
+    "Android"
+  ],
+  "author": {
+    "name": "Master Güi",
+    "email": "g.morenocastano@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/guillemc23/nativescript-plugins/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/guillemc23/nativescript-plugins",
+  "readmeFilename": "README.md",
+  "bootstrapper": "@nativescript/plugin-seed"
+}

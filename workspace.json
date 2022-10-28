@@ -4,7 +4,8 @@
     "demo": "apps/demo",
     "demo-angular": "apps/demo-angular",
     "in-app-review": "packages/in-app-review",
-    "app-rater": "packages/app-rater"
+    "app-rater": "packages/app-rater",
+    "in-app-update": "packages/in-app-update"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
