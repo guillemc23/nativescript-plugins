@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'app-rater', loadChildren: () => import('./plugin-demos/app-rater.module').then((m) => m.AppRaterModule) },
   { path: 'in-app-review', loadChildren: () => import('./plugin-demos/in-app-review.module').then((m) => m.InAppReviewModule) },
   { path: 'in-app-update', loadChildren: () => import('./plugin-demos/in-app-update.module').then((m) => m.InAppUpdateModule) },
+  { path: 'nativescript-swipeable-cards', loadChildren: () => import('./plugin-demos/nativescript-swipeable-cards.module').then((m) => m.NativescriptSwipeableCardsModule) },
 ];
 
 @NgModule({

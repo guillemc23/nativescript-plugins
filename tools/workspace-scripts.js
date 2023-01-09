@@ -82,6 +82,13 @@ module.exports = {
           description: '@mastergui/in-app-update: Build',
         },
       },
+      // @mastergui/nativescript-swipeable-cards
+      'nativescript-swipeable-cards': {
+        build: {
+          script: 'nx run nativescript-swipeable-cards:build.all',
+          description: '@mastergui/nativescript-swipeable-cards: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -103,6 +110,10 @@ module.exports = {
       'in-app-update': {
         script: 'nx run in-app-update:focus',
         description: 'Focus on @mastergui/in-app-update',
+      },
+      'nativescript-swipeable-cards': {
+        script: 'nx run nativescript-swipeable-cards:focus',
+        description: 'Focus on @mastergui/nativescript-swipeable-cards',
       },
       reset: {
         script: 'nx g @mastergui/plugin-tools:focus-packages',
