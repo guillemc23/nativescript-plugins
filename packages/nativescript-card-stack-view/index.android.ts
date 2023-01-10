@@ -1,41 +1,29 @@
+/// <reference path="../../references.d.ts" />
 
 import { View } from '@nativescript/core';
-import { isNullOrUndefined, isNumber } from '@nativescript/core/utils/types'
+import { isNullOrUndefined, isNumber } from '@nativescript/core/utils/types';
 
-import {
-  CardStackCommon,
-  CLog,
-  CLogTypes,
-  ITEMLOADING
-} from './index.common';
+import { NativescriptCardStackViewCommon, CLog, CLogTypes, ITEMLOADING } from './common';
 import { fromObject } from '@nativescript/core';
 
-
-export * from './index.common';
+export * from './common';
 
 declare const com: any;
 
-function notifyForItemAtIndex(
-  owner,
-  nativeView: any,
-  view: any,
-  eventName: string,
-  index: number
-) {
+function notifyForItemAtIndex(owner, nativeView: any, view: any, eventName: string, index: number) {
   let args = {
     eventName: eventName,
     object: owner,
     index: index,
     view: view,
     ios: undefined,
-    android: nativeView
+    android: nativeView,
   };
   owner.notify(args);
   return args;
 }
 
-export class CardStack extends CardStackCommon {
-
+export class NativescriptCardStackView extends NativescriptCardStackViewCommon {
   public _childrenCount; // public so it's accessible inside extended classes using WeakRef
   private _cardStackLayoutManager;
   private _cardStackView;
@@ -44,31 +32,29 @@ export class CardStack extends CardStackCommon {
     super();
 
     CLog(CLogTypes.info, 'CardStack constructor...');
-
   }
 
-  get android(): any {
-    return this.nativeView;
-  }
+  // get android(): any {
+  //     return this.nativeView;
+  // }
 
   get adapter(): androidx.viewpager.widget.PagerAdapter {
     return this.android.getAdapter();
   }
 
-  public get topPosition() {
-    return this._cardStackLayoutManager.getTopPosition();
-  }
+  // public get topPosition() {
+  //     return this._cardStackLayoutManager.getTopPosition();
+  // }
 
-  public get selectedIndex() {
-    return this.topPosition || 0;
-  }
+  // public get selectedIndex() {
+  //     return this.topPosition;
+  // }
 
-  public set selectedIndex(value) {
-    //
-  }
+  // public set selectedIndex(value) {
+  //     //
+  // }
 
   createNativeView() {
-
     if (this.options && this.visibleCount) {
       this.visibleCount = this.options.visibleCount;
     }
@@ -84,72 +70,69 @@ export class CardStack extends CardStackCommon {
   onLoaded() {
     super.onLoaded();
     this.notify({
-      eventName: CardStackCommon.loadedEvent,
-      object: this
+      eventName: NativescriptCardStackViewCommon.loadedEvent,
+      object: this,
     });
   }
 
   initNativeView() {
-
     ensureCardStackAdapterClass();
 
-    const pageListener = new com.yuyakaido.android.cardstackview.CardStackListener(
-      {
-        onCardDragging: (side, ratio) => {
-          const args: any = {
-            eventName: CardStackCommon.draggingEvent,
-            object: fromObject({
-              side: side.name(), // Left, Right
-              ratio
-            })
-          };
-          this.notify(args);
-        },
-        onCardAppeared: (view, position) => {
-          this.notify({
-            eventName: CardStackCommon.appearedEvent,
-            object: fromObject({
-              view,
-              position: position
-            })
-          });
-        },
-        onCardSwiped: (direction) => {
-          this.notify({
-            eventName: CardStackCommon.swipedEvent,
-            object: fromObject({
-              direction: String(direction),
-              position: this.topPosition - 1
-            })
-          });
-        },
-        onCardDisappeared: (view, position) => {
-          this.notify({
-            eventName: CardStackCommon.disappearedEvent,
-            object: fromObject({
-              view,
-              position: position
-            })
-          });
-        },
-        onCardCanceled: () => {
-          this.notify({
-            eventName: CardStackCommon.canceledEvent,
-            object: fromObject({
-              position: this.topPosition
-            })
-          });
-        },
-        onCardRewound: () => {
-          this.notify({
-            eventName: CardStackCommon.rewoundEvent,
-            object: fromObject({
-              position: this.topPosition
-            })
-          });
-        }
-      }
-    );
+    const pageListener = new com.yuyakaido.android.cardstackview.CardStackListener({
+      onCardDragging: (side, ratio) => {
+        const args: any = {
+          eventName: NativescriptCardStackViewCommon.draggingEvent,
+          object: fromObject({
+            side: side.name(), // Left, Right
+            ratio,
+          }),
+        };
+        this.notify(args);
+      },
+      onCardAppeared: (view, position) => {
+        this.notify({
+          eventName: NativescriptCardStackViewCommon.appearedEvent,
+          object: fromObject({
+            view,
+            position: position,
+          }),
+        });
+      },
+      onCardSwiped: (direction) => {
+        this.notify({
+          eventName: NativescriptCardStackViewCommon.swipedEvent,
+          object: fromObject({
+            direction: String(direction),
+            position: this.topPosition - 1,
+          }),
+        });
+      },
+      onCardDisappeared: (view, position) => {
+        this.notify({
+          eventName: NativescriptCardStackViewCommon.disappearedEvent,
+          object: fromObject({
+            view,
+            position: position,
+          }),
+        });
+      },
+      onCardCanceled: () => {
+        this.notify({
+          eventName: NativescriptCardStackViewCommon.canceledEvent,
+          object: fromObject({
+            position: this.topPosition,
+          }),
+        });
+      },
+      onCardRewound: () => {
+        this.notify({
+          eventName: NativescriptCardStackViewCommon.rewoundEvent,
+          object: fromObject({
+            position: this.topPosition,
+          }),
+        });
+      },
+    });
 
     const adapter = new CardStackAdapterClass(this.items, new WeakRef(this));
 
@@ -174,9 +157,7 @@ export class CardStack extends CardStackCommon {
   }
 
   refresh(event = null) {
-
     if (event) {
-
       if (event.action === 'add') {
         if (isNullOrUndefined(this.items) || !isNumber(this.items.length)) {
           return;
@@ -191,9 +172,7 @@ export class CardStack extends CardStackCommon {
           adapter.notifyItemRangeInserted(this.items.length - event.addedCount, event.addedCount);
         }
       }
-
     } else {
-
       if (isNullOrUndefined(this.items) || !isNumber(this.items.length)) {
         return;
       }
@@ -211,31 +190,18 @@ export class CardStack extends CardStackCommon {
 
   public next(direction: string = 'RIGHT') {
     if (direction === 'RIGHT') {
-      const setting = new com.yuyakaido.android.cardstackview.SwipeAnimationSetting.Builder()
-        .setDirection(com.yuyakaido.android.cardstackview.Direction.Right)
-        .setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration)
-        .setInterpolator(new android.view.animation.AccelerateInterpolator())
-        .build();
+      const setting = new com.yuyakaido.android.cardstackview.SwipeAnimationSetting.Builder().setDirection(com.yuyakaido.android.cardstackview.Direction.Right).setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration).setInterpolator(new android.view.animation.AccelerateInterpolator()).build();
       this._cardStackLayoutManager.setSwipeAnimationSetting(setting);
       this._cardStackView.swipe();
     } else {
-      const setting = new com.yuyakaido.android.cardstackview.SwipeAnimationSetting.Builder()
-        .setDirection(com.yuyakaido.android.cardstackview.Direction.Left)
-        .setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration)
-        .setInterpolator(new android.view.animation.AccelerateInterpolator())
-        .build();
+      const setting = new com.yuyakaido.android.cardstackview.SwipeAnimationSetting.Builder().setDirection(com.yuyakaido.android.cardstackview.Direction.Left).setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration).setInterpolator(new android.view.animation.AccelerateInterpolator()).build();
       this._cardStackLayoutManager.setSwipeAnimationSetting(setting);
       this._cardStackView.swipe();
     }
   }
 
   public previous() {
-
-    const setting = new com.yuyakaido.android.cardstackview.RewindAnimationSetting.Builder()
-      .setDirection(com.yuyakaido.android.cardstackview.Direction.Bottom)
-      .setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration)
-      .setInterpolator(new android.view.animation.DecelerateInterpolator())
-      .build();
+    const setting = new com.yuyakaido.android.cardstackview.RewindAnimationSetting.Builder().setDirection(com.yuyakaido.android.cardstackview.Direction.Bottom).setDuration(com.yuyakaido.android.cardstackview.Duration.Normal.duration).setInterpolator(new android.view.animation.DecelerateInterpolator()).build();
     this._cardStackLayoutManager.setRewindAnimationSetting(setting);
     this._cardStackView.rewind();
   }
@@ -249,7 +215,6 @@ export class CardStack extends CardStackCommon {
     CLog(CLogTypes.info, `_getDataItem...`);
     return this.items.getItem ? this.items.getItem(index) : this.items[index];
   }
-
 
   public onItemsChanged(data) {
     CLog(CLogTypes.info, `_onItemsChanged...`);
@@ -265,7 +230,6 @@ function ensureCardStackAdapterClass() {
   }
 
   class CardStackAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<any> {
-
     private owner: WeakRef<any>;
     private items: Array<any> = [];
 
@@ -277,7 +241,6 @@ function ensureCardStackAdapterClass() {
     }
 
     onCreateViewHolder(container: android.view.ViewGroup, type) {
-
       const view = this.owner.get()._createTemplateView();
 
       if (view.parent !== this.owner.get()) {
@@ -289,28 +252,19 @@ function ensureCardStackAdapterClass() {
       view.nativeView.setId(android.view.View.generateViewId());
 
       return new ViewHolder(view.nativeView);
-
     }
 
     onBindViewHolder(holder, position) {
-
       if (!holder) {
         return;
       }
 
       this.owner.get().views.forEach((view) => {
         if (holder.itemView === view.nativeView) {
-          let _args: any = notifyForItemAtIndex(
-            this.owner.get(),
-            view ? view.nativeView : null,
-            view,
-            ITEMLOADING,
-            position
-          );
+          let _args: any = notifyForItemAtIndex(this.owner.get(), view ? view.nativeView : null, view, ITEMLOADING, position);
           view.bindingContext = this.owner.get().items.getItem(position);
         }
       });
-
     }
 
     getItemCount() {
@@ -326,7 +280,6 @@ function ensureCardStackAdapterClass() {
   }
 
   CardStackAdapterClass = CardStackAdapter;
-
 }
 
 class ViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {

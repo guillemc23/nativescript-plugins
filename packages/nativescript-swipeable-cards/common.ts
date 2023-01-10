@@ -1,3 +1,3 @@
 import { Observable } from '@nativescript/core';
 
-export class NativescriptSwipeableCardsCommon extends Observable {}
+export class CardStackCommon extends Observable { }

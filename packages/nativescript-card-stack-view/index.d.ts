@@ -1,9 +1,10 @@
+import { NativescriptCardStackViewCommon } from './common';
 import { ObservableArray } from '@nativescript/core';
 import { KeyedTemplate, Property, Template, View } from '@nativescript/core';
 import { GridLayout } from '@nativescript/core';
-import { StackLayout } from '@nativescript/core'
+import { StackLayout } from '@nativescript/core';
 
-export declare class CardStack extends CardStackCommon {
+export declare class NativescriptCardStackView extends NativescriptCardStackViewCommon {
   private _androidViewId;
   private _indicatorViewId;
   private _pagerIndicatorLayoutParams;
@@ -33,7 +34,6 @@ export declare class CardStack extends CardStackCommon {
 
   onItemsChanged(data: any): void;
 }
-
 
 declare class CardStackPagerAdapterClassInner extends androidx.viewpager.widget.PagerAdapter {
   private owner;
@@ -68,7 +68,6 @@ declare class CardStackPageChangedListener extends androidx.viewpager.widget.Vie
 }
 
 export declare class CardStackCommon extends GridLayout {
-
   public static draggingEvent: string;
   public static swipedEvent: string;
   public static canceledEvent: string;
@@ -96,7 +95,6 @@ export declare class CardStackCommon extends GridLayout {
   next(direction: string): void;
 
   previous(): void;
-
 }
 
 export declare class CardStackItem extends StackLayout {

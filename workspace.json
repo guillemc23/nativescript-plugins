@@ -6,7 +6,8 @@
     "in-app-review": "packages/in-app-review",
     "app-rater": "packages/app-rater",
     "in-app-update": "packages/in-app-update",
-    "nativescript-swipeable-cards": "packages/nativescript-swipeable-cards"
+    "nativescript-swipeable-cards": "packages/nativescript-swipeable-cards",
+    "nativescript-card-stack-view": "packages/nativescript-card-stack-view"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

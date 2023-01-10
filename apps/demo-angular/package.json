@@ -5,7 +5,8 @@
     "@mastergui/in-app-review": "file:../../dist/packages/in-app-review",
     "@mastergui/app-rater": "file:../../dist/packages/app-rater",
     "@mastergui/in-app-update": "file:../../dist/packages/in-app-update",
-    "@mastergui/nativescript-swipeable-cards": "file:../../dist/packages/nativescript-swipeable-cards"
+    "@mastergui/nativescript-swipeable-cards": "file:../../dist/packages/nativescript-swipeable-cards",
+    "@mastergui/nativescript-card-stack-view": "file:../../dist/packages/nativescript-card-stack-view"
   },
   "devDependencies": {
     "@nativescript/android": "~8.3.0",

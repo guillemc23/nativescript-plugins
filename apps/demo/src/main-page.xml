@@ -10,6 +10,7 @@
 <Button text="app-rater" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
 <Button text="in-app-update" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
 <Button text="nativescript-swipeable-cards" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="nativescript-card-stack-view" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
       </StackLayout>
     </ScrollView>
   </StackLayout>

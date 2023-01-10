@@ -16,6 +16,9 @@ export class HomeComponent {
       name: 'in-app-update',
     },
     {
+      name: 'nativescript-card-stack-view',
+    },
+    {
       name: 'nativescript-swipeable-cards',
     },
   ];

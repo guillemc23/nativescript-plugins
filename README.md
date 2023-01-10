@@ -1,7 +1,8 @@
 - [@mastergui/app-rater](packages/app-rater/README.md)
 - [@mastergui/in-app-review](packages/in-app-review/README.md)
 - [@mastergui/in-app-update](packages/in-app-update/README.md)
-- [@mastergui/nativescript-swipeable-cards](packages/nativescript-swipeable-cards/README.md)
+- [@mastergui/nativescript-card-stack-view](packages/nativescript-card-stack-view/README.md)
+- [nativescript-card-stack-view](packages/nativescript-swipeable-cards/README.md)
 
 # How to use?
 

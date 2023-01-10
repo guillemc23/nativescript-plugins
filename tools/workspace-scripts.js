@@ -89,6 +89,13 @@ module.exports = {
           description: '@mastergui/nativescript-swipeable-cards: Build',
         },
       },
+      // @mastergui/nativescript-card-stack-view
+      'nativescript-card-stack-view': {
+        build: {
+          script: 'nx run nativescript-card-stack-view:build.all',
+          description: '@mastergui/nativescript-card-stack-view: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -114,6 +121,10 @@ module.exports = {
       'nativescript-swipeable-cards': {
         script: 'nx run nativescript-swipeable-cards:focus',
         description: 'Focus on @mastergui/nativescript-swipeable-cards',
+      },
+      'nativescript-card-stack-view': {
+        script: 'nx run nativescript-card-stack-view:focus',
+        description: 'Focus on @mastergui/nativescript-card-stack-view',
       },
       reset: {
         script: 'nx g @mastergui/plugin-tools:focus-packages',

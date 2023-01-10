@@ -25,7 +25,8 @@
       "@mastergui/in-app-review": ["packages/in-app-review/index.d.ts"],
       "@mastergui/app-rater": ["packages/app-rater/index.d.ts"],
       "@mastergui/in-app-update": ["packages/in-app-update/index.d.ts"],
-      "@mastergui/nativescript-swipeable-cards": ["packages/nativescript-swipeable-cards/index.d.ts"]
+      "@mastergui/nativescript-swipeable-cards": ["packages/nativescript-swipeable-cards/index.d.ts"],
+      "@mastergui/nativescript-card-stack-view": ["packages/nativescript-card-stack-view/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

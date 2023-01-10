@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/nativescript-card-stack-view",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/nativescript-card-stack-view",
+        "tsConfig": "packages/nativescript-card-stack-view/tsconfig.json",
+        "packageJson": "packages/nativescript-card-stack-view/package.json",
+        "main": "packages/nativescript-card-stack-view/index.d.ts",
+        "assets": [
+          "packages/nativescript-card-stack-view/*.md",
+          "packages/nativescript-card-stack-view/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/nativescript-card-stack-view/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts nativescript-card-stack-view"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/nativescript-card-stack-view"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages nativescript-card-stack-view"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/nativescript-card-stack-view/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
