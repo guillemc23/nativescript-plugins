@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   demos = [
     {
-      name: 'app-rater',
-    },
-    {
       name: 'in-app-review',
     },
     {
@@ -17,9 +14,6 @@ export class HomeComponent {
     },
     {
       name: 'nativescript-card-stack-view',
-    },
-    {
-      name: 'nativescript-swipeable-cards',
     },
   ];
 }
